@@ -1,0 +1,86 @@
+@import function
+
+header
+  background: #fff
+  position: fixed
+  width: 100%
+  min-width: 1230px
+  text-align: right
+  left: 0
+  top: 0
+  z-index: 99
+  .logo
+    float: left
+    margin-top: 30px
+    img
+      display: block
+  .mainMenu
+    text-align: left
+    display: inline-block
+    vertical-align: middle
+    ul
+      li
+        display: inline-block
+        padding-left: 50px
+        &:first-child
+          padding-left: 0
+        a
+          font-weight: 600
+          line-height: 99px
+          border-bottom: 3px solid transparent
+          +fo(12px, #333)
+          display: block
+          text-transform: uppercase
+        &:hover, &.active
+          a
+            border-bottom-color: #ff0000
+  .lang
+    display: inline-block
+    vertical-align: middle
+    margin: 0 25px
+    position: relative
+    text-align: center
+    .btn
+      display: block
+      text-align: center
+      +fo(11px, #f10c27)
+      text-transform: uppercase
+      img
+        margin-bottom: 7px
+        display: block
+    ul
+      position: absolute
+      top: 100%
+      width: 100%
+      border: 1px solid #f10c27
+      border-top: none
+      display: none
+      li
+        a
+          +fo(11px, #f10c27)
+          display: block
+          line-height: 26px
+        &:hover
+          a
+            background: #f10c27
+            color: #fff
+  .search
+    width: 220px
+    display: inline-block
+    vertical-align: middle
+    form
+      position: relative
+      input
+        width: 100%
+        height: 44px
+        border: 1px solid #f2f2f2
+        +br(44px)
+        padding: 0 32px 0 20px
+        +fo(12px, #626262)
+      button
+        border: none
+        background: none
+        +fo(14px, #b9b9b9)
+        right: 13px
+        top: 12px
+        position: absolute

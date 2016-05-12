@@ -1,27 +1,34 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 
-gulp.task('less', function () {
-  gulp.src('less/styles.less')
-    .pipe(less())
+gulp.task('sass', function () {
+  gulp.src('sass/styles.sass')
+    .pipe(sass())
     .pipe(gulp.dest('./dist'))
     .pipe(livereload());
 });
 
 gulp.task('watch', function () {
   livereload.listen({quite: true});
-  gulp.watch(['./less/**'], ['less']);
+  gulp.watch(['./sass/**'], ['sass']);
   gulp.watch(['./copy/**'], ['copy']);
 });
 
 gulp.task('copy', function () {
   gulp.src([
-    'node_modules/bootstrap/fonts/*'
-  ]).pipe(gulp.dest(
-    './dist/fonts'
-  ));
+    'node_modules/jquery/dist/jquery.min.js',
+    'js/*'
+  ]).pipe(gulp.dest('./dist/js'));
+
+  gulp.src([
+    'node_modules/font-awesome/fonts/*',
+    'node_modules/open-sans-fontface/fonts/**/*'
+  ]).pipe(gulp.dest('./dist/fonts'));
+
+  gulp.src('img/**')
+    .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('build', ['copy', 'less']);
+gulp.task('build', ['copy', 'sass']);
 gulp.task('default', ['build', 'watch']);

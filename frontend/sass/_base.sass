@@ -1,0 +1,44 @@
+@import function
+*, *:before, *:after
+  +bs(border-box)
+  margin: 0px
+  padding: 0px
+
+html, body
+  height: 100%
+  font-family: 'Open Sans'
+
+.wrapper
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  min-width: 1230px
+
+ol, ul, li
+  list-style: none
+  margin: 0px
+  padding: 0px
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0px
+
+input, button, select
+  &:focus
+    outline: none
+
+button, input[type="submit"], input[type="reset"], select
+  cursor: pointer
+
+a
+  cursor: pointer
+  text-decoration: none
+  &:hover, &:focus
+    outline: none
+    text-decoration: none
+
+
+
+
+
+
+

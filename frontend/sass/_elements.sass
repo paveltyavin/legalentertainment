@@ -1,0 +1,25 @@
+@import function
+
+.centralizer
+  width: 1230px
+  margin: 0 auto
+  padding: 0 15px
+
+.siteTitle
+  +fo(40px, #2a418a)
+  line-height: 42px
+  font-weight: bold
+  text-transform: uppercase
+  &:after
+    display: block
+    height: 3px
+    width: 28px
+    background: #2a418a
+    content: ""
+    margin-top: 5px
+  &.white
+    color: #fff
+    &:after
+      background: #fff
+
+
