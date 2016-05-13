@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^article/$', views.ArticleListView.as_view(), name='article_list'),
     url(r'^article/(?P<pk>\d+)$', views.ArticleDetailView.as_view(), name='article_detail'),
+    url(r'^test/error/$', views.TestErrorView.as_view(), name='test_error'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 
@@ -17,6 +18,7 @@ urlpatterns += i18n_patterns(
 
 if settings.DEBUG:
     from django.views.static import serve
+
     urlpatterns += [
         url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     ]

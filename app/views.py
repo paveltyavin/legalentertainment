@@ -2,7 +2,7 @@ from urllib.parse import urljoin
 
 from django.conf import settings
 from django.utils.translation import get_language
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
@@ -36,3 +36,8 @@ class ArticleDetailView(DetailView):
 class ArticleListView(ListView):
     queryset = Article.objects.all()
     template_name = 'article_list.html'
+
+
+class TestErrorView(View):
+    def get(self, *args, **kwargs):
+        raise Exception
