@@ -6,7 +6,7 @@ $(function () {
   $(".subscriber .content .remove").click(function () {
     $(this).parents('.content').fadeOut(300)
   });
-  
+
   $(".mainMenu ul li a").click(function () {
     var div = $(this).attr("href");
     $("html, body").animate({scrollTop: $(div).offset().top - 102}, '500');
@@ -16,6 +16,12 @@ $(function () {
   $(window).scroll(function () {
     var left = $(window).scrollLeft();
     $('header').css({left: -left});
+  });
+
+  $('.lang .btn').click(function(){
+    var lang = $(this).data('lang');
+    $('[name=language]').val(lang);
+    $('form.set_language_form').submit();
   });
 
   YMaps.jQuery(function () {

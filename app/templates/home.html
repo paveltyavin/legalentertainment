@@ -1,4 +1,7 @@
 {% load static from staticfiles %}
+{% load i18n %}
+{% load app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,47 +25,60 @@
             <nav class='mainMenu' id='navbar'>
                 <ul class='nav'>
                     <li>
-                        <a href='#whoAreWe'>КТО МЫ</a>
+                        <a href='#whoAreWe'>
+                            {% text 'Кто мы' 'Who is le' %}
+                        </a>
                     </li>
                     <li>
-                        <a href='#whyWeNeedYou'>ЗАЧЕМ МЫ НУЖНЫ ВАМ</a>
+                        <a href='#whyWeNeedYou'>
+                            {% text 'Зачем мы нужны вам' 'Why you need us' %}
+                        </a>
                     </li>
                     <li>
-                        <a href='#cost'>СТОИМОСТЬ</a>
+                        <a href='#cost'>
+                            {% text 'Стоимость' 'price' %}
+                        </a>
                     </li>
                     <li>
-                        <a href='#withUsBlock'>Кто уже с нами</a>
+                        <a href='#withUsBlock'>
+                            {% text 'Кто уже с нами' 'Who is already with us' %}
+                        </a>
                     </li>
                     <li>
-                        <a href='#contact'>КАК НАС ПОЗВАТЬ</a>
+                        <a href='#contact'>
+                            {% text 'Как нас позвать' 'How to call us' %}
+                        </a>
                     </li>
                 </ul>
             </nav>
             <div class='lang'>
-                <a class='btn'>
-                    <img alt='' src={% static 'img/flag.png' %}>
-                    eng
-                </a>
-                <ul>
-                    <li>
-                        <a href=''>rus</a>
-                    </li>
-                    <li>
-                        <a href=''>fr</a>
-                    </li>
-                    <li>
-                        <a href=''>it</a>
-                    </li>
-                </ul>
-            </div>
-            <div class='search'>
-                <form>
-                    <input placeholder='Поиск по сайту' type='text'>
-                    <button>
-                        <i class='fa fa-search'></i>
-                    </button>
+                {% if LANGUAGE_CODE == 'ru' %}
+                    <a class="btn" data-lang="en">
+                        <img alt='English' src={% static 'img/flag.png' %}>
+                        eng
+                    </a>
+                {% endif %}
+
+                {% if LANGUAGE_CODE == 'en' %}
+                    <a class="btn" data-lang="ru">
+                        <img alt='Русский' src={% static 'img/flag.png' %}>
+                        рус
+                    </a>
+                {% endif %}
+
+                <form class="set_language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                    <input name="language" type="hidden" value=""/>
                 </form>
             </div>
+            {#            <div class='search'>#}
+            {#                <form>#}
+            {#                    <input placeholder='Поиск по сайту' type='text'>#}
+            {#                    <button>#}
+            {#                        <i class='fa fa-search'></i>#}
+            {#                    </button>#}
+            {#                </form>#}
+            {#            </div>#}
         </div>
     </header>
     <div class='main'>
@@ -70,36 +86,31 @@
             <div class='topBlock'>
                 <div class='centralizer'>
                     <div class='inner'>
-                        <h1>
-                            <span>Legal EntertaiNment</span>
-                            Юридическая поддержка
-                            <br>
-                            рекламы, маркетинга
-                            <br>
-                            и шоу бизнеса
-                        </h1>
-                        <div class='actions'>
-                            <span class='title'>Акция:</span>
-                            <div class='box'>
-                                <span class='blue'>1 (первая) услуга</span>
-                                <span class='blue'>новому клиенту –</span>
-                                <span class='red'>БЕСПЛАТНО!*</span>
-                            </div>
-                            <span class='small'>* подробности акции по телефону</span>
-                        </div>
-                        <div class='actions'>
-                            <span class='title'>Акция:</span>
-                            <div class='box'>
-                                <span class='blue'>1 (первая) услуга</span>
-                                <span class='blue'>новому клиенту –</span>
-                                <span class='red'>БЕСПЛАТНО!*</span>
-                            </div>
-                            <span class='small'>* подробности акции по телефону</span>
-                        </div>
+                        {% textblock 'ru' %}
+                            <h1>
+                                <span>Legal Entertainment</span>
+                                Юридическая поддержка
+                                <br>
+                                рекламы, маркетинга
+                                <br>
+                                и шоу бизнеса
+                            </h1>
+                            {% for promo in promo_list %}
+                                {{ promo.html|safe }}
+                            {% endfor %}
+                        {% endtextblock %}
+                        {% textblock 'en' %}
+                            <h1>
+                                <span>Legal Entertainment</span>
+                                Legal support of advertising,
+                                <br>
+                                marketing and show business
+                            </h1>
+                        {% endtextblock %}
                     </div>
                     <div class='btnBlock'>
-                        <a href=''>Написать нам сейчас</a>
-                        <span>Мы свяжемся с вами в течение часа</span>
+                        <a href='#'>{% text 'Написать нам сейчас' 'Email us now' %}</a>
+                        <span>{% text 'Мы свяжемся с вами в течение часа' 'We will contact you within an hour' %}</span>
                     </div>
                     <div class='soc'>
                         <a class='fb' href=''>
@@ -113,17 +124,28 @@
             </div>
             <div class='whoAreWe' id='whoAreWe'>
                 <div class='centralizer'>
-                    <h2 class='siteTitle'>КТО МЫ</h2>
+                    <h2 class='siteTitle'>{% text 'Кто мы' 'Who is LE' %}</h2>
                     <ul class='list'>
                         <li>
                             <div class='num'>1</div>
                             <span>LE –</span>
-                            свежая и целеустремленная компания, команда с большим и успешным опытом работы с крупными Клиентами, у которых высокие требования и большие ожидания
+                            {% text 'Кто мы' 'Who is LE' %}
+                            {% textblock 'ru' %}
+                                свежая и целеустремленная компания, команда с большим и успешным опытом работы с крупными Клиентами, у которых высокие требования и большие ожидания
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                fresh and ambitious company, wide and successful work experience with clients who have high demands and high expectations.
+                            {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>4</div>
                             <span>Мы –</span>
-                            если Вы запрещены, а реклама Вам нужна, мы ответим, как все сделать с минимальными рисками или полностью их исключить
+                            {% textblock 'ru' %}
+                                если Вы запрещены, а реклама Вам нужна, мы ответим, как все сделать с минимальными рисками или полностью их исключить
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                If you are forbidden, but you need advertising, we know how to do it with minimal risks or without them.
+                            {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>2</div>
@@ -377,12 +399,14 @@
                                 <p>
                                     {{ article.html }}
                                 </p>
-                                <a class='more' href='{% url 'article_detail' article.id %}'> Подробнее</a>
-                                <div class='btns'>
-                                    <a href=''>Like</a>
-                                    <a href=''>Comment</a>
-                                    <a href=''>Share</a>
-                                </div>
+                                <a class='more' href='{% url 'article_detail' article.id %}'>
+                                    Подробнее
+                                </a>
+                                {#                                <div class='btns'>#}
+                                {#                                    <a href=''>Like</a>#}
+                                {#                                    <a href=''>Comment</a>#}
+                                {#                                    <a href=''>Share</a>#}
+                                {#                                </div>#}
                             </li>
                         {% endfor %}
                     </div>

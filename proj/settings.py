@@ -21,6 +21,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,7 +59,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = []
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -74,3 +75,8 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/dist'),
 )
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Русский'),
+]

@@ -1,11 +1,12 @@
 from urllib.parse import urljoin
 
 from django.conf import settings
+from django.utils.translation import get_language
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from app.models import Document, Client, Article
+from app.models import Document, Client, Article, Promo
 
 
 class HomeView(TemplateView):
@@ -13,11 +14,15 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
+        result['promo_list'] = Promo.objects.filter(is_active=True)
         result['client_list'] = Client.objects.all()
         result['article_list'] = Article.objects.all()[:2]
         try:
             d = Document.objects.get(slug='price')
-            result['price_url'] = urljoin(settings.MEDIA_URL, d.file.url)
+            language = get_language()
+            file_field = getattr(d, 'file_{}'.format(language), None)
+            if file_field:
+                result['price_url'] = urljoin(settings.MEDIA_URL, file_field.url)
         except Document.DoesNotExist:
             pass
         return result

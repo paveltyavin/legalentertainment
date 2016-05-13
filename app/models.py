@@ -47,7 +47,8 @@ class Client(models.Model):
 
 
 class Document(models.Model):
-    file = models.FileField(verbose_name='Файл')
+    file_ru = models.FileField(verbose_name='Файл (рус.)')
+    file_en = models.FileField(verbose_name='Файл (англ.)')
     name = models.CharField(verbose_name='Название', default='', max_length=128)
     slug = models.SlugField(verbose_name='Идентификатор', unique=True)
 
