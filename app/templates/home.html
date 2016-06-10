@@ -1,6 +1,7 @@
 {% load static from staticfiles %}
 {% load i18n %}
 {% load app_tags %}
+{% load thumbnail %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html>
@@ -13,13 +14,13 @@
     <script src='{% static 'js/jquery.min.js' %}' type='text/javascript'></script>
     <script src='{% static 'js/scrollspy.js' %}' type='text/javascript'></script>
     <script src='{% static 'js/scripts.js' %}' type='text/javascript'></script>
-    <script src='https://api-maps.yandex.ru/1.1/index.xml' type='text/javascript'></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body data-spy='scroll' data-target='#navbar'>
 <div class='wrapper'>
     <header>
         <div class='centralizer'>
-            <a class='logo' href=''>
+            <a class='logo' href='/'>
                 <img alt='' src='{% static 'img/logo.png' %}'>
             </a>
             <nav class='mainMenu' id='navbar'>
@@ -54,14 +55,14 @@
             <div class='lang'>
                 {% if LANGUAGE_CODE == 'ru' %}
                     <a class="btn" data-lang="en">
-                        <img alt='English' src={% static 'img/flag.png' %}>
+                        <img alt='English' src={% static 'img/flag_en.png' %}>
                         eng
                     </a>
                 {% endif %}
 
                 {% if LANGUAGE_CODE == 'en' %}
                     <a class="btn" data-lang="ru">
-                        <img alt='Русский' src={% static 'img/flag.png' %}>
+                        <img alt='Русский' src={% static 'img/flag_rus.png' %}>
                         рус
                     </a>
                 {% endif %}
@@ -109,14 +110,14 @@
                         {% endtextblock %}
                     </div>
                     <div class='btnBlock'>
-                        <a href='#'>{% text 'Написать нам сейчас' 'Email us now' %}</a>
+                        <a href='mailto:le@legalentertainment.ru'>{% text 'Написать нам сейчас' 'Email us now' %}</a>
                         <span>{% text 'Мы свяжемся с вами в течение часа' 'We will contact you within an hour' %}</span>
                     </div>
                     <div class='soc'>
-                        <a class='fb' href=''>
+                        <a class='fb' href='http://facebook.com/'>
                             <i class='fa fa-facebook'></i>
                         </a>
-                        <a class='env' href=''>
+                        <a class='env' href='mailto:le@legalentertainment.ru'>
                             <i class='fa fa-envelope-o'></i>
                         </a>
                     </div>
@@ -129,12 +130,11 @@
                         <li>
                             <div class='num'>1</div>
                             <span>LE –</span>
-                            {% text 'Кто мы' 'Who is LE' %}
                             {% textblock 'ru' %}
                                 свежая и целеустремленная компания, команда с большим и успешным опытом работы с крупными Клиентами, у которых высокие требования и большие ожидания
                             {% endtextblock %}
                             {% textblock 'en' %}
-                                fresh and ambitious company, wide and successful work experience with clients who have high demands and high expectations.
+                                fresh and ambitious company, wide and successful work experience with clients who have high demands and high expectations
                             {% endtextblock %}
                         </li>
                         <li>
@@ -144,97 +144,171 @@
                                 если Вы запрещены, а реклама Вам нужна, мы ответим, как все сделать с минимальными рисками или полностью их исключить
                             {% endtextblock %}
                             {% textblock 'en' %}
-                                If you are forbidden, but you need advertising, we know how to do it with minimal risks or without them.
+                                If you are forbidden, but you need advertising, we know how to do it with minimal risks or without them
                             {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>2</div>
                             <span>Мы –</span>
-                            это юридическое сопровождение Вашей деятельности без каких-либо размытых и двусмысленных выводов и ответов на Ваши вопросы
+                            {% textblock 'ru' %}
+                                это юридическое сопровождение Вашей деятельности без каких-либо размытых и двусмысленных выводов и ответов на Ваши вопросы
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                A legal support of your activity without any foggy and ambigous conclusion and answers to your question
+                            {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>5</div>
                             <span>LE –</span>
-                            если Вы не хотите думать про юристов: где их взять?, а хороши ли они?, кто они?, нужны ли они вообще?, зачем им платить зарплату?, а что они вообще делают?, что такое консультант+?, на них такие расходы, зачем?;
+                            {% textblock 'ru' %}
+                                если Вы не хотите думать про юристов: где их взять?, а хороши ли они?, кто они?, нужны ли они вообще?, зачем им платить зарплату?, а что они вообще делают?, что такое консультант+?, на них такие расходы, зачем?;
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                If you do not want to think about lawyers: where to get they? Are the really good or not? Who are they? Do we need them at all? Why should we pay them salary? What do they do? What is "Consultant +" or "Garant"? So much expenses, why?
+                            {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>3</div>
                             <span>LE –</span>
-                            если Вы занимаетесь Продвижением своей Продукции, Рекламой, Маркетингом, ATL, BTL, Рекламными Акциями, Стимулирующими мероприятиями и не знаете как это сделать правильно, не нарушая законы
+                            {% textblock 'ru' %}
+                                если Вы занимаетесь Продвижением своей Продукции, Рекламой, Маркетингом, ATL, BTL, Рекламными Акциями, Стимулирующими мероприятиями и не знаете как это сделать правильно, не нарушая законы
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                If you are engaged in promoting your products, advertising, marketing, ATL, BTL, advertising campaigns, stimulating campaigns, events, but do not know how to do it correctly and legally, without breaking the law
+                            {% endtextblock %}
                         </li>
                         <li>
                             <div class='num'>6</div>
                             <span>Мы –</span>
-                            если Вы хотите снизить свои риски, получить четкие ответы на поставленные вопросы, быть уверенными в правильности Ваших решений
+                            {% textblock 'ru' %}
+                                если Вы хотите снизить свои риски, получить четкие ответы на поставленные вопросы, быть уверенными в правильности Ваших решений
+                            {% endtextblock %}
+                            {% textblock 'en' %}
+                                If you want to reduce your risks, get clear answers to your questions, to be sure of your decisions are really correct.
+                            {% endtextblock %}
                         </li>
                     </ul>
                 </div>
             </div>
             <div class='whyWeNeedYou' id='whyWeNeedYou'>
-                <div class='img'></div>
+                
+                {% for client in client_list %}
+                    {% thumbnail client.image '200x200' as im %}
+                        <div class="img" style="background: url({{ im.url }}) center no-repeat;"></div>
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                {% endfor %}
+
                 <div class='centralizer'>
                     <div class='listBox'>
-                        <h2 class='siteTitle'>ЗАЧЕМ МЫ НУЖНЫ ВАМ</h2>
-                        <ul>
-                            <li>
-                                <strong>Сопровождение Рекламных Акций</strong>
-                                (Стимулирующие мероприятия, Лотереи, Промо Акции);
-                            </li>
-                            <li>
-                                Заключения по вопросам легитимности рекламных активностей. Вы крепкий алкоголь? или сигареты?, лекарственные средства или БАДы, проводите рекламную акцию и не знаете можно ли так?, мы поможем все разложить по полочкам Вашего разума
-                            </li>
-                            <li>
-                                Сопровождение различных рекламных и маркетинговых услуг, включая, но не ограничиваясь:
-                                <strong>
-                                    Consumer Promotion, Sales Promotion, Event Marketing, Trade Marketing, Merchandising, OUTSTAFFING, Direct Marketing/CRM, Digital Marketing, Branding, Наружка, Интернет Реклама, ТВ, Радио Реклама и ины
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>Celebrities.</strong>
-                                Рекламные договоры с Селебритис (звездами шоу бизнеса, спорта, политики), разработка типовых договоров, проверка и внесение изменений в существующие договоры
-                            </li>
-                            <li>
-                                Устное и письменное консультирование по различным вопросам в рекламной сфере
-                            </li>
-                            <li>
-                                <strong>ФАС.</strong>
-                                Антимонопольное регулирование по вопросам соблюдения законодательства о рекламе. Представительство, запросы, разъяснения
-                            </li>
-                            <li>
-                                <strong>StartUp.</strong>
-                                Сопровождение стартапов от создания юридического лица до бухгалтерского обслуживания
-                            </li>
-                            <li>
-                                <strong>Сопровождение деятельности юридических лиц</strong>
-                            </li>
-                            <li>
-                                <strong>Договоры.</strong>
-                                Консультирование по договорным отношениям
-                            </li>
-                            <li>
-                                Представительство.
-                                <strong>Получить то, что Вам должны.</strong>
-                                Судебное представительство, взыскание долгов – исполнительное производство, представительство в иных органах
-                            </li>
-                            <li>
-                                Запросы государственным органам
-                            </li>
-                        </ul>
+                        {% textblock 'ru' %}
+                            <h2 class='siteTitle'>ЗАЧЕМ МЫ НУЖНЫ ВАМ</h2>
+                            <ul>
+                                <li>
+                                    <strong>Сопровождение Рекламных Акций</strong>
+                                    (Стимулирующие мероприятия, Лотереи, Промо Акции);
+                                </li>
+                                <li>
+                                    Заключения по вопросам легитимности рекламных активностей. Вы крепкий алкоголь? или сигареты?, лекарственные средства или БАДы, проводите рекламную акцию и не знаете можно ли так?, мы поможем все разложить по полочкам Вашего разума
+                                </li>
+                                <li>
+                                    Сопровождение различных рекламных и маркетинговых услуг, включая, но не ограничиваясь:
+                                    <strong>
+                                        Consumer Promotion, Sales Promotion, Event Marketing, Trade Marketing, Merchandising, OUTSTAFFING, Direct Marketing/CRM, Digital Marketing, Branding, Наружка, Интернет Реклама, ТВ, Радио Реклама и ины
+                                    </strong>
+                                </li>
+                                <li>
+                                    <strong>Celebrities.</strong>
+                                    Рекламные договоры с Селебритис (звездами шоу бизнеса, спорта, политики), разработка типовых договоров, проверка и внесение изменений в существующие договоры
+                                </li>
+                                <li>
+                                    Устное и письменное консультирование по различным вопросам в рекламной сфере
+                                </li>
+                                <li>
+                                    <strong>ФАС.</strong>
+                                    Антимонопольное регулирование по вопросам соблюдения законодательства о рекламе. Представительство, запросы, разъяснения
+                                </li>
+                                <li>
+                                    <strong>StartUp.</strong>
+                                    Сопровождение стартапов от создания юридического лица до бухгалтерского обслуживания
+                                </li>
+                                <li>
+                                    <strong>Сопровождение деятельности юридических лиц</strong>
+                                </li>
+                                <li>
+                                    <strong>Договоры.</strong>
+                                    Консультирование по договорным отношениям
+                                </li>
+                                <li>
+                                    Представительство.
+                                    <strong>Получить то, что Вам должны.</strong>
+                                    Судебное представительство, взыскание долгов – исполнительное производство, представительство в иных органах
+                                </li>
+                                <li>
+                                    Запросы государственным органам
+                                </li>
+                            </ul>
+                        {% endtextblock %}
+                        {% textblock 'en' %}
+                            <h2 class='siteTitle'>Why you need us</h2>
+                            <ul>
+                                <li>
+                                    Legal support of advertising campaigns. (Stimulating events, promotions, creative contests).
+                                </li>
+                                <li>
+                                    Legal opinion on advertising, marketing activities. Are you a strong alcohol? Or cigarettes? Medicines or Biologically Active Food Supplements?
+                                    Do you advertise it but still not sure how to do it legally? We can help you to solve the problems;
+                                </li>
+                                <li>
+                                    Advertising and marketing services legal support, as well as: Consumer Promotion, Sales Pro-motion, Event Marketing, Trade Marketing, Merchandising, OUTSTAFFING, Direct Marketing (B2C) / CRM, Digital Marketing, Branding, Outdoor advertising, Internet advertising, TV and radio advertising, etc.;
+                                </li>
+                                <li>
+                                    Celebrities. Advertising contracts with Celebrities (stars of show business, sports, politics), development of standard agreements, reviewing and amending existing contracts;
+                                </li>
+                                <li>
+                                    Spoken and written consultations on various issues of advertising field
+                                </li>
+                                <li>
+                                    The FAS (the Federal Antimonopoly Service). Antimonopoly regulation on the issues of observance of the legislation on advertising. Representation, inquiries, clarifications;
+                                </li>
+                                <li>
+                                    Startup. Support of startups from creating a legal entity to an accounting service
+                                </li>
+                                <li>
+                                    Support of legal entities activity
+                                </li>
+                                <li>
+                                    The contracts. Advising on contractual relationships
+                                </li>
+                                <li>
+                                    Representation. Get what You deserve.
+                                    Court representation, debt recovery - enforcement proceedings, representation in other bodies
+                                </li>
+                                <li>
+                                    Requests to the state bodies
+                                </li>
+                            </ul>
+                        {% endtextblock %}
                     </div>
                 </div>
             </div>
             <div class='subscriber'>
                 <div class='centralizer'>
-                    <div class='title'>Ежемесячное абонентское обслуживание Клиентов, рады предложить Вам следующие пакеты услуг:</div>
+                    {% textblock 'ru' %}
+                        <div class='title'>Ежемесячное абонентское обслуживание Клиентов, рады предложить Вам следующие пакеты услуг:</div>
+                    {% endtextblock %}
+                    {% textblock 'en' %}
+                        <div class='title'>Monthly customer service. We are pleased to offer the following package of services:</div>
+                    {% endtextblock %}
                     <ul class='section'>
                         <li class='item'>
                             <span class='ic1'></span>
-                            <a>Минимум</a>
+                            <a>{% text 'Минимум' 'Minimum' %}</a>
                             <div class='content'>
                                 <div class='centralizer'>
                                     <h3 class='titleItem'>
                                         <i class='icon1'></i>
-                                        Минимум
+                                        {% text 'Минимум' 'Minimum' %}
                                     </h3>
                                     <a class='remove'>
                                         <i class='fa fa-remove'></i>
@@ -259,12 +333,12 @@
                         </li>
                         <li class='item'>
                             <span class='ic2'></span>
-                            <a>Cтатус</a>
+                            <a>{% text 'Статус' 'Status' %}</a>
                             <div class='content'>
                                 <div class='centralizer'>
                                     <h3 class='titleItem'>
                                         <i class='icon2'></i>
-                                        Статус
+                                        {% text 'Статус' 'Status' %}
                                     </h3>
                                     <a class='remove'>
                                         <i class='fa fa-remove'></i>
@@ -293,12 +367,12 @@
                         </li>
                         <li class='item'>
                             <span class='ic3'></span>
-                            <a>Привилегия</a>
+                            <a>{% text 'Привелегия' 'Privilege' %}</a>
                             <div class='content'>
                                 <div class='centralizer'>
                                     <h3 class='titleItem'>
                                         <i class='icon3'></i>
-                                        Привелегия
+                                        {% text 'Привелегия' 'Privilege' %}
                                     </h3>
                                     <a class='remove'>
                                         <i class='fa fa-remove'></i>
@@ -328,12 +402,12 @@
                         </li>
                         <li class='item'>
                             <span class='ic4'></span>
-                            <a>Превосходство</a>
+                            <a>{% text 'Превосходство' 'Superiority' %} </a>
                             <div class='content'>
                                 <div class='centralizer'>
                                     <h3 class='titleItem'>
                                         <i class='icon4'></i>
-                                        Превосходство
+                                        {% text 'Превосходство' 'Superiority' %}
                                     </h3>
                                     <a class='remove'>
                                         <i class='fa fa-remove'></i>
@@ -368,21 +442,28 @@
             <div class='cost' id='cost'>
                 <div class='centralizer'>
                     <div class='inner'>
-                        <h2 class='siteTitle white'>СТОИМОСТЬ</h2>
+                        <h2 class='siteTitle white'>{% text 'СТОИМОСТЬ' 'COST' %}</h2>
                         <p>
-                            Мы хотим, чтобы наши Клиенты всегда были довольны, поэтому к каждому Клиенту мы находим индивидуальный подход в зависимости от его целей и интересов, из чего мы оказываем услуги по той стоимости, которая наиболее подходит каждому Клиенту, предоставляя возможные скидки
+                            {% textblock 'en' %}
+                                We want our Clients to be always pleased. that is why we pay individual attention to every Client with regard to its objectives and interests. Therefore, we render the services under the cost that suits each Client the best by providing possible discounts.
+                            {% endtextblock %}
+                            {% textblock 'ru' %}
+                                Мы хотим, чтобы наши Клиенты всегда были довольны, поэтому к каждому Клиенту мы находим индивидуальный подход в зависимости от его целей и интересов, из чего мы оказываем услуги по той стоимости, которая наиболее подходит каждому Клиенту, предоставляя возможные скидки
+                            {% endtextblock %}
                         </p>
-              <span>
-                прайс лист на ежемесячное клиентское обслуживание и тарифные услуги
-                <a href='{{ price_url }}'>скачать</a>
-              </span>
+                    <span>
+                        {% text 'прайс лист на ежемесячное клиентское обслуживание и тарифные услуги' 'Price list' %}
+                        <a href='{{ price_url }}'>скачать</a>
+                    </span>
                     </div>
                 </div>
                 <div class='pictures'></div>
             </div>
             <div class='centralizer withUsBlock' id='withUsBlock'>
                 <div class='withUs'>
-                    <h2 class='siteTitle'>Кто уже с нами</h2>
+                    <h2 class='siteTitle'>
+                        {% text 'Кто уже с нами' 'Who is already with us' %}
+                    </h2>
                     {% for client in client_list %}
                         <a href='{{ client.url }}'>
                             <img alt='' src={{ client.image.url }}>
@@ -390,7 +471,9 @@
                     {% endfor %}
                 </div>
                 <div class='ourExperience'>
-                    <h2 class='siteTitle'>Наш опыт</h2>
+                    <h2 class='siteTitle'>
+                        {% text 'Наш опыт' 'Our experience' %}
+                    </h2>
                     <div class='list'>
                         {% for article in article_list %}
                             <li>
@@ -402,22 +485,24 @@
                                 <a class='more' href='{% url 'article_detail' article.id %}'>
                                     Подробнее
                                 </a>
-                                {#                                <div class='btns'>#}
-                                {#                                    <a href=''>Like</a>#}
-                                {#                                    <a href=''>Comment</a>#}
-                                {#                                    <a href=''>Share</a>#}
-                                {#                                </div>#}
                             </li>
                         {% endfor %}
                     </div>
-                    <a class='allNews' href='{% url 'article_list' %}'>все новости</a>
+                    {#                    <a class='allNews' href='{% url 'article_list' %}'>все новости</a>#}
                 </div>
             </div>
             <div class='contact' id='contact'>
                 <div class='centralizer'>
-                    <h2 class='siteTitle white'>КАК НАС ПОЗВАТЬ</h2>
-                    <span class='address'>Адрес: г. Москва, Никитский бульвар, 8А</span>
-                    <span class='tell'>тел. +7 (495) 72 601 72</span>
+                    <h2 class='siteTitle white'>
+                        {% text 'Как нас позвать' 'How to call us' %}
+                    </h2>
+                    <span class='address'>
+                        {% text 'Адрес: г. Москва, Никитский бульвар, 8А' 'Moscow, Nikitsky boulevard, 8a' %}
+                    </span>
+                    <span class='tell'>
+                        {% text 'тел.' 'tel:' %}
+                        +7 (495) 72 601 72
+                    </span>
                     <div class='mail'>
                         <span>le@legalentertainment.ru</span>
                         <span>www.legalentertainment.ru</span>
@@ -438,10 +523,10 @@
         </a>
         <span>COPYRIGHT ©2016 LEGAL ENTERTAINMENT. ALL RIGHTS RESERVED</span>
         <div class='soc'>
-            <a class='fb' href=''>
+            <a class='fb' href='http://facebook.com/'>
                 <i class='fa fa-facebook'></i>
             </a>
-            <a class='env' href=''>
+            <a class='env' href='mailto:le@legalentertainment.ru'>
                 <i class='fa fa-envelope-o'></i>
             </a>
         </div>

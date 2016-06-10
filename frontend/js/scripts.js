@@ -18,19 +18,25 @@ $(function () {
     $('header').css({left: -left});
   });
 
-  $('.lang .btn').click(function(){
+  $('.lang .btn').click(function () {
     var lang = $(this).data('lang');
     $('[name=language]').val(lang);
     $('form.set_language_form').submit();
   });
 
-  YMaps.jQuery(function () {
-    var map = new YMaps.Map(YMaps.jQuery("#map")[0]);
-    map.setCenter(new YMaps.GeoPoint(37.601244, 55.754299), 20);
-    var placemark = new YMaps.Placemark(new YMaps.GeoPoint(37.601244, 55.754299));
-    map.addOverlay(placemark);
-  })
+  ymaps.ready(function () {
+    var map = new ymaps.Map("map", {
+      center: [55.7543, 37.6012],
+      zoom: 17
+    });
+    var placemark = new ymaps.Placemark([55.7543, 37.6012], {
+      hintContent: 'Никитская 8а',
+      balloonContent: 'Никитская 8а'
+    });
 
+    map.geoObjects.add(placemark);
+    
+  });
 });
 
 

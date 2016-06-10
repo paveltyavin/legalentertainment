@@ -1,4 +1,5 @@
 from django.db import models
+from sorl.thumbnail import ImageField
 from django.views.generic.dates import timezone_today
 
 
@@ -35,7 +36,7 @@ class Article(models.Model):
 
 class Client(models.Model):
     name = models.CharField(verbose_name='Название', max_length=128)
-    image = models.ImageField()
+    image = ImageField()
     url = models.URLField(verbose_name='Ссылка')
 
     class Meta:
