@@ -459,7 +459,9 @@
                     </h2>
                     {% for client in client_list %}
                         <a href='{{ client.url }}'>
-                            <img alt='' src={{ client.image.url }}>
+                        {% thumbnail client.image '200x200' as im %}
+                            <img alt='' src={{ im.url }}>
+                        {% endthumbnail %}
                         </a>
                     {% endfor %}
                 </div>

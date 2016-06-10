@@ -38,10 +38,12 @@ class Client(models.Model):
     name = models.CharField(verbose_name='Название', max_length=128)
     image = ImageField()
     url = models.URLField(verbose_name='Ссылка')
+    ordering = models.IntegerField(verbose_name='Сортировка', default=0)
 
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
+        ordering = ['ordering', ]
 
     def __str__(self):
         return self.name
