@@ -14,10 +14,20 @@ class DocumentAdmin(admin.ModelAdmin):
 
 
 class ClientAdmin(admin.ModelAdmin):
+    list_display = ('name', 'ordering')
+    list_editable = ('ordering',)
+
+
+class PromoAdmin(admin.ModelAdmin):
+    list_display = ('name', 'is_active')
+    list_editable = ('is_active',)
+
+
+class ArticleAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Article)
-admin.site.register(Promo)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Promo, PromoAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Document, DocumentAdmin)
