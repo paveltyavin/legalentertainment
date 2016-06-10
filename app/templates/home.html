@@ -191,14 +191,7 @@
                 </div>
             </div>
             <div class='whyWeNeedYou' id='whyWeNeedYou'>
-                
-                {% for client in client_list %}
-                    {% thumbnail client.image '200x200' as im %}
-                        <div class="img" style="background: url({{ im.url }}) center no-repeat;"></div>
-                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                    {% endthumbnail %}
-                {% endfor %}
-
+                <div class="img"></div>
                 <div class='centralizer'>
                     <div class='listBox'>
                         {% textblock 'ru' %}

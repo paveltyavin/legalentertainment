@@ -10,7 +10,7 @@ class DocumentAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
-    fields = ('file',)
+    fields = ('file_en', 'file_ru',)
 
 
 class ClientAdmin(admin.ModelAdmin):
