@@ -1,4 +1,71 @@
 {% extends 'home.html' %}
-{% block content %}
-    {{ aticle.title }}
+{% load static from staticfiles %}
+{% load i18n %}
+{% load app_tags %}
+{% load thumbnail %}
+{% block body %}
+    <div class="wrapper">
+        <header>
+            <div class='centralizer'>
+                <a class='logo' href='/'>
+                    <img alt='' src='{% static 'img/logo.png' %}'>
+                </a>
+                <nav class='mainMenu' id='navbar'>
+                    <ul class='nav'>
+                        <li>
+                            <a href='/#whoAreWe'>
+                                {% text 'Кто мы' 'Who is le' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/#whyWeNeedYou'>
+                                {% text 'Зачем мы нужны вам' 'Why you need us' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/#cost'>
+                                {% text 'Стоимость' 'price' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/#withUsBlock'>
+                                {% text 'Кто уже с нами' 'Who is already with us' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/#contact'>
+                                {% text 'Как нас позвать' 'How to call us' %}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class='lang'>
+                    {% if LANGUAGE_CODE == 'ru' %}
+                        <a class="btn" data-lang="en">
+                            <img alt='English' src={% static 'img/flag_en.png' %}>
+                            eng
+                        </a>
+                    {% endif %}
+
+                    {% if LANGUAGE_CODE == 'en' %}
+                        <a class="btn" data-lang="ru">
+                            <img alt='Русский' src={% static 'img/flag_rus.png' %}>
+                            рус
+                        </a>
+                    {% endif %}
+
+                    <form class="set_language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                        <input name="language" type="hidden" value=""/>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <div class="article_content">
+            <h2>
+                {{ article.title }}
+            </h2>
+            {{ article.html }}
+        </div>
+    </div>
 {% endblock %}

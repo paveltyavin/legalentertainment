@@ -16,74 +16,74 @@
     <script src='{% static 'js/scripts.js' %}' type='text/javascript'></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
-<body data-spy='scroll' data-target='#navbar'>
-<div class='wrapper'>
-    <header>
-        <div class='centralizer'>
-            <a class='logo' href='/'>
-                <img alt='' src='{% static 'img/logo.png' %}'>
-            </a>
-            <nav class='mainMenu' id='navbar'>
-                <ul class='nav'>
-                    <li>
-                        <a href='#whoAreWe'>
-                            {% text 'Кто мы' 'Who is le' %}
+{% block body %}
+    <body data-spy='scroll' data-target='#navbar'>
+    <div class='wrapper'>
+        <header>
+            <div class='centralizer'>
+                <a class='logo' href='/'>
+                    <img alt='' src='{% static 'img/logo.png' %}'>
+                </a>
+                <nav class='mainMenu' id='navbar'>
+                    <ul class='nav'>
+                        <li>
+                            <a href='#whoAreWe'>
+                                {% text 'Кто мы' 'Who is le' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#whyWeNeedYou'>
+                                {% text 'Зачем мы нужны вам' 'Why you need us' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#cost'>
+                                {% text 'Стоимость' 'price' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#withUsBlock'>
+                                {% text 'Кто уже с нами' 'Who is already with us' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#contact'>
+                                {% text 'Как нас позвать' 'How to call us' %}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class='lang'>
+                    {% if LANGUAGE_CODE == 'ru' %}
+                        <a class="btn" data-lang="en">
+                            <img alt='English' src={% static 'img/flag_en.png' %}>
+                            eng
                         </a>
-                    </li>
-                    <li>
-                        <a href='#whyWeNeedYou'>
-                            {% text 'Зачем мы нужны вам' 'Why you need us' %}
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#cost'>
-                            {% text 'Стоимость' 'price' %}
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#withUsBlock'>
-                            {% text 'Кто уже с нами' 'Who is already with us' %}
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#contact'>
-                            {% text 'Как нас позвать' 'How to call us' %}
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class='lang'>
-                {% if LANGUAGE_CODE == 'ru' %}
-                    <a class="btn" data-lang="en">
-                        <img alt='English' src={% static 'img/flag_en.png' %}>
-                        eng
-                    </a>
-                {% endif %}
+                    {% endif %}
 
-                {% if LANGUAGE_CODE == 'en' %}
-                    <a class="btn" data-lang="ru">
-                        <img alt='Русский' src={% static 'img/flag_rus.png' %}>
-                        рус
-                    </a>
-                {% endif %}
+                    {% if LANGUAGE_CODE == 'en' %}
+                        <a class="btn" data-lang="ru">
+                            <img alt='Русский' src={% static 'img/flag_rus.png' %}>
+                            рус
+                        </a>
+                    {% endif %}
 
-                <form class="set_language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}"/>
-                    <input name="language" type="hidden" value=""/>
-                </form>
+                    <form class="set_language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                        <input name="language" type="hidden" value=""/>
+                    </form>
+                </div>
+                {#            <div class='search'>#}
+                {#                <form>#}
+                {#                    <input placeholder='Поиск по сайту' type='text'>#}
+                {#                    <button>#}
+                {#                        <i class='fa fa-search'></i>#}
+                {#                    </button>#}
+                {#                </form>#}
+                {#            </div>#}
             </div>
-            {#            <div class='search'>#}
-            {#                <form>#}
-            {#                    <input placeholder='Поиск по сайту' type='text'>#}
-            {#                    <button>#}
-            {#                        <i class='fa fa-search'></i>#}
-            {#                    </button>#}
-            {#                </form>#}
-            {#            </div>#}
-        </div>
-    </header>
-    <div class='main'>
-        {% block content %}
+        </header>
+        <div class='main'>
             <div class='topBlock'>
                 <div class='centralizer'>
                     <div class='inner'>
@@ -459,9 +459,9 @@
                     </h2>
                     {% for client in client_list %}
                         <a href='{{ client.url }}'>
-                        {% thumbnail client.image '200x200' as im %}
-                            <img alt='' src={{ im.url }}>
-                        {% endthumbnail %}
+                            {% thumbnail client.image '200x200' as im %}
+                                <img alt='' src={{ im.url }}>
+                            {% endthumbnail %}
                         </a>
                     {% endfor %}
                 </div>
@@ -507,25 +507,25 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
-    </div>
-    <div class='push'></div>
-</div>
-<footer>
-    <div class='centralizer'>
-        <a class='logo' href=''>
-            <img alt='' src={% static 'img/logo.png' %}>
-        </a>
-        <span>COPYRIGHT ©2016 LEGAL ENTERTAINMENT. ALL RIGHTS RESERVED</span>
-        <div class='soc'>
-            <a class='fb' href='http://facebook.com/'>
-                <i class='fa fa-facebook'></i>
-            </a>
-            <a class='env' href='mailto:le@legalentertainment.ru'>
-                <i class='fa fa-envelope-o'></i>
-            </a>
         </div>
+        <div class='push'></div>
     </div>
-</footer>
-</body>
+    <footer>
+        <div class='centralizer'>
+            <a class='logo' href=''>
+                <img alt='' src={% static 'img/logo.png' %}>
+            </a>
+            <span>COPYRIGHT ©2016 LEGAL ENTERTAINMENT. ALL RIGHTS RESERVED</span>
+            <div class='soc'>
+                <a class='fb' href='http://facebook.com/'>
+                    <i class='fa fa-facebook'></i>
+                </a>
+                <a class='env' href='mailto:le@legalentertainment.ru'>
+                    <i class='fa fa-envelope-o'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    </body>
+{% endblock %}
 </html>

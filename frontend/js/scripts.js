@@ -24,19 +24,21 @@ $(function () {
     $('form.set_language_form').submit();
   });
 
-  ymaps.ready(function () {
-    var map = new ymaps.Map("map", {
-      center: [55.7543, 37.6012],
-      zoom: 17
-    });
-    var placemark = new ymaps.Placemark([55.7543, 37.6012], {
-      hintContent: 'Никитская 8а',
-      balloonContent: 'Никитская 8а'
-    });
+  if ($('#map').length) {
+    ymaps.ready(function () {
+      var map = new ymaps.Map("map", {
+        center: [55.7543, 37.6012],
+        zoom: 17
+      });
+      var placemark = new ymaps.Placemark([55.7543, 37.6012], {
+        hintContent: 'Никитская 8а',
+        balloonContent: 'Никитская 8а'
+      });
 
-    map.geoObjects.add(placemark);
-    
-  });
+      map.geoObjects.add(placemark);
+
+    });
+  }
 });
 
 
