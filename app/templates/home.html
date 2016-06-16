@@ -22,7 +22,7 @@
         <header>
             <div class='centralizer'>
                 <a class='logo' href='/'>
-                    <img alt='' src='{% static 'img/logo.png' %}'>
+                    <img alt='' src={% static 'img/logo_2.png' %}>
                 </a>
                 <nav class='mainMenu' id='navbar'>
                     <ul class='nav'>
@@ -97,7 +97,7 @@
                                 и шоу бизнеса
                             </h1>
                             {% for promo in promo_list %}
-                                {{ promo.html|safe }}
+                                {{ promo.html_ru|safe }}
                             {% endfor %}
                         {% endtextblock %}
                         {% textblock 'en' %}
@@ -107,6 +107,9 @@
                                 <br>
                                 marketing and show business
                             </h1>
+                            {% for promo in promo_list %}
+                                {{ promo.html_en|safe }}
+                            {% endfor %}
                         {% endtextblock %}
                     </div>
                     <div class='btnBlock'>
@@ -499,7 +502,11 @@
                         +7 (495) 72 601 72
                     </span>
                     <div class='mail'>
-                        <span>le@legalentertainment.ru</span>
+                        <span>
+                            <a href="mailto:le@legalentertainment.ru">
+                                le@legalentertainment.ru
+                            </a>
+                        </span>
                         <span>www.legalentertainment.ru</span>
                     </div>
                     <div class='map'>
@@ -513,7 +520,7 @@
     <footer>
         <div class='centralizer'>
             <a class='logo' href=''>
-                <img alt='' src={% static 'img/logo.png' %}>
+                <img alt='' src={% static 'img/logo_2.png' %}>
             </a>
             <span>COPYRIGHT ©2016 LEGAL ENTERTAINMENT. ALL RIGHTS RESERVED</span>
             <div class='soc'>

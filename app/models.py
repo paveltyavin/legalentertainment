@@ -6,7 +6,8 @@ from django.views.generic.dates import timezone_today
 class Promo(models.Model):
     name = models.CharField(verbose_name='Название', max_length=128)
     is_active = models.BooleanField(default=False, verbose_name='Активно')
-    html = models.TextField()
+    html_ru = models.TextField()
+    html_en = models.TextField()
 
     class Meta:
         verbose_name = 'Акция'
