@@ -4,3 +4,5 @@ local.py
 node_modules/
 dist/
 media/
+*.pyc
+.DS_Store

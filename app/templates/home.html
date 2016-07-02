@@ -142,7 +142,7 @@
                         </li>
                         <li>
                             <div class='num'>4</div>
-                            <span>Мы –</span>
+                            <span>{% text 'Мы' 'We' %} –</span>
                             {% textblock 'ru' %}
                                 если Вы запрещены, а реклама Вам нужна, мы ответим, как все сделать с минимальными рисками или полностью их исключить
                             {% endtextblock %}
@@ -152,7 +152,7 @@
                         </li>
                         <li>
                             <div class='num'>2</div>
-                            <span>Мы –</span>
+                            <span>{% text 'Мы' 'We' %} –</span>
                             {% textblock 'ru' %}
                                 это юридическое сопровождение Вашей деятельности без каких-либо размытых и двусмысленных выводов и ответов на Ваши вопросы
                             {% endtextblock %}
@@ -182,7 +182,7 @@
                         </li>
                         <li>
                             <div class='num'>6</div>
-                            <span>Мы –</span>
+                            <span>{% text 'Мы' 'We' %} –</span>
                             {% textblock 'ru' %}
                                 если Вы хотите снизить свои риски, получить четкие ответы на поставленные вопросы, быть уверенными в правильности Ваших решений
                             {% endtextblock %}
@@ -289,151 +289,291 @@
                 </div>
             </div>
             <div class='subscriber'>
-                <div class='centralizer'>
-                    {% textblock 'ru' %}
+                {% textblock 'ru' %}
+                    <div class='centralizer'>
                         <div class='title'>Ежемесячное абонентское обслуживание Клиентов, рады предложить Вам следующие пакеты услуг:</div>
-                    {% endtextblock %}
-                    {% textblock 'en' %}
+                        <ul class='section'>
+                            <li class='item'>
+                                <span class='ic1'></span>
+                                <a>Минимум</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon1'></i>
+                                            Минимум
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
+                                            <li>- Устные консультации до 3 (трех) раз в месяц до 30 (тридцати) минут каждая;</li>
+                                            <li>- Письменные консультации по электронной почте до 1 (одного) раза в месяц;</li>
+                                            <li>- Проверка представленных договоров до 5 (пяти) штук в месяц;</li>
+                                            <li>- Разработка договора – 1 (одна) штука в месяц;</li>
+                                            <li>- Правовое письменное заключение по запросу до 1 (одного) раза в месяц;</li>
+                                        </ul>
+                                        <ul class='list'>
+                                            <li>- Составление запроса, письма, ответа на запрос в государственные органы 1 (один) раз в месяц;</li>
+                                            <li>- Подготовка претензии контрагенту – 1 (один) раз в месяц;</li>
+                                            <li>- Подготовка правил стимулирующего мероприятия – 1 (один) раз в месяц;</li>
+                                            <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – 1 (один) документ в месяц;</li>
+                                            <li>- Подготовка доверенности – 1 (один) раз в месяц.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='item'>
+                                <span class='ic2'></span>
+                                <a>Статус</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon2'></i>
+                                            Статус
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
+                                            <li>- Устные консультации до 5 (пяти) раз в месяц до 30 (тридцати) минут каждая;</li>
+                                            <li>- Письменные консультации по электронной почте до 3 (трех) раз в месяц;</li>
+                                            <li>- Проверка договоров до 10 (десяти) штук в месяц;</li>
+                                            <li>- Разработка договора – 3 (три) штуки в месяц;</li>
+                                            <li>- Правовое письменное заключение по запросу до 3 (трех) раз в месяц;</li>
+                                            <li>- Составление запроса, письма, ответа на запрос в государственные органы до 3 (трех) раз в месяц;</li>
+                                            <li>- Подготовка претензии контрагенту - 3 (три) раза в месяц;</li>
+                                        </ul>
+                                        <ul class='list'>
+                                            <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям до 3 (трех) запросов в месяц;</li>
+                                            <li>- Подготовка правил стимулирующего мероприятия – 3 (три) раза в месяц;</li>
+                                            <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – 2 (два) документа в месяц;</li>
+                                            <li>- Подготовка доверенности – 3 (три) раза в месяц;</li>
+                                            <li>- Анализ предоставленных документов Клиентом до 2 (двух) раз в месяц;</li>
+                                            <li>- Выезд юриста в офис клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций – 2 (два) раза в месяц, каждая консультация до 3 (трех) часов;</li>
+                                            <li>- 3% скидки на тарифные услуги, не входящие в пакет.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='item'>
+                                <span class='ic3'></span>
+                                <a>Привелегия</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon3'></i>
+                                            Привелегия
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
+                                            <li>- Устные консультации до 20 (двадцати) штук в месяц;</li>
+                                            <li>- Письменные консультации по электронной почте до 10 (десяти) штук в месяц;</li>
+                                            <li>- Проверка договоров до 20 (двадцати) штук в месяц;</li>
+                                            <li>- Разработка договоров до 10 (десяти) штук в месяц;</li>
+                                            <li>- Правовые письменные заключения по запросу до 5 (пяти)штук в месяц;</li>
+                                            <li>- Составление запроса, письма, ответа на запрос в государственные органы до 5 (пяти) штук в месяц;</li>
+                                            <li>- Подготовка претензии контрагенту до 10 (десяти) раз в месяц;</li>
+                                        </ul>
+                                        <ul class='list extend'>
+                                            <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям до 5 (пяти) штук в месяц;</li>
+                                            <li>- Подготовка правил стимулирующего мероприятия до 5 (пяти) штук в месяц;</li>
+                                            <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – до 5 (пяти) документов в месяц;</li>
+                                            <li>- Подготовка доверенности до 5 (пять) штук в месяц;</li>
+                                            <li>- Анализ предоставленных документов Клиентом до 5 (пяти) штук в месяц;</li>
+                                            <li>- Выезд юриста в офис Клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций до 4 (четырех) раза в месяц, каждая консультация до 3 (трех) часов;</li>
+                                            <li>- Представительство адвоката 1 (один) раз в месяц до 3 (трех) часов (далее по тарифу за каждый час);</li>
+                                            <li>- 5% скидки на тарифные услуги, не входящие в пакет.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='item'>
+                                <span class='ic4'></span>
+                                <a>Превосходство</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon4'></i>
+                                            Превосходство
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
+                                            <li>- Устные консультации – без ограничений;</li>
+                                            <li>- Письменные консультации по электронной почте – без ограничений;</li>
+                                            <li>- Проверка договоров – без ограничений;</li>
+                                            <li>- Разработка договоров – без ограничений;</li>
+                                            <li>- Правовые письменные заключения по запросу – без ограничений;</li>
+                                            <li>- Составление запроса, письма, ответа на запрос в государственные органы – без ограничений;</li>
+                                            <li>- Подготовка претензии контрагенту – без ограничений;</li>
+                                            <li>- Представительство в Арбитражном суде г. Москвы до 3 (трех) дел (более, по тарифу за каждый час);</li>
+                                        </ul>
+                                        <ul class='list extend'>
+                                            <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям – без ограничений;</li>
+                                            <li>- Подготовка правил стимулирующего мероприятия – без ограничений;</li>
+                                            <li>- Подготовка учредительных документов (Решения, Протоколысобраний участников, иных документов) – без ограничений;</li>
+                                            <li>- Подготовка доверенности – без ограничений;</li>
+                                            <li>- Анализ предоставленных документов Клиентом – без ограничений;</li>
+                                            <li>- Выезд юриста в офис клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций до 8 (восьми) раз в месяц, каждая консультация до 3 (трех) часов;</li>
+                                            <li>- Представительство адвоката до 2 (двух) раз в месяц до 2 (двух) часов каждое (далее по тарифу за каждый час);</li>
+                                            <li>- 10% скидки на тарифные услуги, не входящие в пакет.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endtextblock %}
+                {% textblock 'en' %}
+                    <div class='centralizer'>
                         <div class='title'>Monthly customer service. We are pleased to offer the following package of services:</div>
-                    {% endtextblock %}
-                    <ul class='section'>
-                        <li class='item'>
-                            <span class='ic1'></span>
-                            <a>{% text 'Минимум' 'Minimum' %}</a>
-                            <div class='content'>
-                                <div class='centralizer'>
-                                    <h3 class='titleItem'>
-                                        <i class='icon1'></i>
-                                        {% text 'Минимум' 'Minimum' %}
-                                    </h3>
-                                    <a class='remove'>
-                                        <i class='fa fa-remove'></i>
-                                    </a>
-                                    <ul class='list'>
-                                        <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
-                                        <li>- Устные консультации до 3 (трех) раз в месяц до 30 (тридцати) минут каждая;</li>
-                                        <li>- Письменные консультации по электронной почте до 1 (одного) раза в месяц;</li>
-                                        <li>- Проверка представленных договоров до 5 (пяти) штук в месяц;</li>
-                                        <li>- Разработка договора – 1 (одна) штука в месяц;</li>
-                                        <li>- Правовое письменное заключение по запросу до 1 (одного) раза в месяц;</li>
-                                    </ul>
-                                    <ul class='list'>
-                                        <li>- Составление запроса, письма, ответа на запрос в государственные органы 1 (один) раз в месяц;</li>
-                                        <li>- Подготовка претензии контрагенту – 1 (один) раз в месяц;</li>
-                                        <li>- Подготовка правил стимулирующего мероприятия – 1 (один) раз в месяц;</li>
-                                        <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – 1 (один) документ в месяц;</li>
-                                        <li>- Подготовка доверенности – 1 (один) раз в месяц.</li>
-                                    </ul>
+                        <ul class='section'>
+                            <li class='item'>
+                                <span class='ic1'></span>
+                                <a>Minimum</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon1'></i>
+                                            Minimum
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Monthly services. Includes the following services:</li>
+                                            <li>- Spoken consultations - up to three (3) times per month to thirty (30) minutes each</li>
+                                            <li>- Written consultations via email 1 (one) time a month;</li>
+                                            <li>- Verification of contracts up to 5 (five) units per month;</li>
+                                            <li>- Drafting contracts - 1 (one) unit per month;</li>
+                                            <li>- Written legal opinion upon request - 1 (one) time a month;</li>
+                                        </ul>
+                                        <ul class='list'>
+                                            <li>- Preparation of request, letters, the response to a request of state authorities - 1 (one) time per month;</li>
+                                            <li>- Preparation of claims to the counterparty - 1 (one) time per month;</li>
+                                            <li> - Preparation of stimulating event regulation - 1 (one) time per month;</li>
+                                            <li> - Preparation of constituent documents (Decisions, minutes of meetings of members, other documents) - 1 (one) paper per month;</li>
+                                            <li> - Preparation of a Power of attorney - 1 (one) time per month.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class='item'>
-                            <span class='ic2'></span>
-                            <a>{% text 'Статус' 'Status' %}</a>
-                            <div class='content'>
-                                <div class='centralizer'>
-                                    <h3 class='titleItem'>
-                                        <i class='icon2'></i>
-                                        {% text 'Статус' 'Status' %}
-                                    </h3>
-                                    <a class='remove'>
-                                        <i class='fa fa-remove'></i>
-                                    </a>
-                                    <ul class='list'>
-                                        <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
-                                        <li>- Устные консультации до 5 (пяти) раз в месяц до 30 (тридцати) минут каждая;</li>
-                                        <li>- Письменные консультации по электронной почте до 3 (трех) раз в месяц;</li>
-                                        <li>- Проверка договоров до 10 (десяти) штук в месяц;</li>
-                                        <li>- Разработка договора – 3 (три) штуки в месяц;</li>
-                                        <li>- Правовое письменное заключение по запросу до 3 (трех) раз в месяц;</li>
-                                        <li>- Составление запроса, письма, ответа на запрос в государственные органы до 3 (трех) раз в месяц;</li>
-                                        <li>- Подготовка претензии контрагенту - 3 (три) раза в месяц;</li>
-                                    </ul>
-                                    <ul class='list'>
-                                        <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям до 3 (трех) запросов в месяц;</li>
-                                        <li>- Подготовка правил стимулирующего мероприятия – 3 (три) раза в месяц;</li>
-                                        <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – 2 (два) документа в месяц;</li>
-                                        <li>- Подготовка доверенности – 3 (три) раза в месяц;</li>
-                                        <li>- Анализ предоставленных документов Клиентом до 2 (двух) раз в месяц;</li>
-                                        <li>- Выезд юриста в офис клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций – 2 (два) раза в месяц, каждая консультация до 3 (трех) часов;</li>
-                                        <li>- 3% скидки на тарифные услуги, не входящие в пакет.</li>
-                                    </ul>
+                            </li>
+                            <li class='item'>
+                                <span class='ic2'></span>
+                                <a>Status</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon2'></i>
+                                            Status
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Monthly services. Includes the following services:</li>
+                                            <li>- Spoken consultation - up to 5 (five) times per month to thirty (30) minutes each;</li>
+                                            <li> - Written consultations via e-mail - up to three (3) times per month;</li>
+                                            <li> - Verification of contracts - up to ten (10) units per month;</li>
+                                            <li> - Drafting contracts - 3 (three) pieces per month;</li>
+                                            <li> - Written legal opinion upon the request - up to three (3) times per month;</li>
+                                            <li> - Preparation of request, letters, the response to a request of state authorities - up to three (3) times per month;</li>
+                                            <li> - Preparation of claims to a counterparty - three (3) times a month;</li>
+                                        </ul>
+                                        <ul class='list'>
+                                            <li> - Providing legal material, laws, change in legislation. Advising on the novelties up to three (3) requests per month;</li>
+                                            <li> - Preparation of stimulating event regulation - 3 (three) times a month;</li>
+                                            <li> - Preparation of constituent documents (Decisions, minutes of meetings of members, other documents) - 2 (two) papers per month;</li>
+                                            <li> - Preparation of a Power of attorney - three (3) times a month;</li>
+                                            <li> - Analysis of the documents provided by a Client - up to 2 (two) times per month;</li>
+                                            <li> - Lawyers visit of a Client's office, or another place within the city of Moscow for negotiations and consultations - 2 (two) times per month, each consultation - up to 3 (three) hours long;</li>
+                                            <li> - 3% discount on tariff services not included in the package.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class='item'>
-                            <span class='ic3'></span>
-                            <a>{% text 'Привелегия' 'Privilege' %}</a>
-                            <div class='content'>
-                                <div class='centralizer'>
-                                    <h3 class='titleItem'>
-                                        <i class='icon3'></i>
-                                        {% text 'Привелегия' 'Privilege' %}
-                                    </h3>
-                                    <a class='remove'>
-                                        <i class='fa fa-remove'></i>
-                                    </a>
-                                    <ul class='list'>
-                                        <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
-                                        <li>- Устные консультации до 20 (двадцати) штук в месяц;</li>
-                                        <li>- Письменные консультации по электронной почте до 10 (десяти) штук в месяц;</li>
-                                        <li>- Проверка договоров до 20 (двадцати) штук в месяц;</li>
-                                        <li>- Разработка договоров до 10 (десяти) штук в месяц;</li>
-                                        <li>- Правовые письменные заключения по запросу до 5 (пяти)штук в месяц;</li>
-                                        <li>- Составление запроса, письма, ответа на запрос в государственные органы до 5 (пяти) штук в месяц;</li>
-                                        <li>- Подготовка претензии контрагенту до 10 (десяти) раз в месяц;</li>
-                                    </ul>
-                                    <ul class='list extend'>
-                                        <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям до 5 (пяти) штук в месяц;</li>
-                                        <li>- Подготовка правил стимулирующего мероприятия до 5 (пяти) штук в месяц;</li>
-                                        <li>- Подготовка учредительных документов (Решения, Протоколы собраний участников, иных документов) – до 5 (пяти) документов в месяц;</li>
-                                        <li>- Подготовка доверенности до 5 (пять) штук в месяц;</li>
-                                        <li>- Анализ предоставленных документов Клиентом до 5 (пяти) штук в месяц;</li>
-                                        <li>- Выезд юриста в офис Клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций до 4 (четырех) раза в месяц, каждая консультация до 3 (трех) часов;</li>
-                                        <li>- Представительство адвоката 1 (один) раз в месяц до 3 (трех) часов (далее по тарифу за каждый час);</li>
-                                        <li>- 5% скидки на тарифные услуги, не входящие в пакет.</li>
-                                    </ul>
+                            </li>
+                            <li class='item'>
+                                <span class='ic3'></span>
+                                <a>Privilege</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon3'></i>
+                                            Privilege
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Monthly services. Includes the following services:</li>
+                                            <li>- Spoken consultation - up to twenty (20) units per month;</li>
+                                            <li>- Written consultations via e-mail to 10 (ten) units per month;</li>
+                                            <li>- Verification of contracts - up to twenty (20) units per month;</li>
+                                            <li>- Drafting contracts - up to ten (10) units per month;</li>
+                                            <li>- Written legal opinions upon request - up to 5 (five)units per month;</li>
+                                            <li>- Preparation of request, letters, the response to a request of state authorities - up to 5 (five) units per month;</li>
+                                            <li>- Preparation of claims to a counterparty - up to ten (10) times a month;</li>
+                                            <li>- Representation in Arbitration court of Moscow on one case - 2 (two) times a month, afterwards - according to the tariffs for each visit of a lawyer;</li>
+                                        </ul>
+                                        <ul class='list extend'>
+                                            <li>- Providing legal material, laws, change in legislation. Advising on the novelties up to 5 (five) units per month;</li>
+                                            <li>- Preparation of stimulating event regulation - up to 5 (five) units per month;</li>
+                                            <li>- Preparation of constituent documents (Decisions, minutes of meet-ings of members, other documents) - up to 5 (five) documents per month;</li>
+                                            <li>- Preparation of a Power of attorney - up to 5 (five) units per month;</li>
+                                            <li>- Analysis of documents provided by a Client - up to 5 (five) units per month;</li>
+                                            <li>- Lawyer' visit of a Client's office, or another place within the city of Moscow for negotiations and consultations - up to 4 (four) times a month, each consultation - up to 3 (three) hours long;</li>
+                                            <li>- Representation of attorney - 1 (one) time per month up to 3 (three) hours long (afterwards - according to the tariffs for each hour);</li>
+                                            <li>- 5% discount on tariff services not included in the package.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class='item'>
-                            <span class='ic4'></span>
-                            <a>{% text 'Превосходство' 'Superiority' %} </a>
-                            <div class='content'>
-                                <div class='centralizer'>
-                                    <h3 class='titleItem'>
-                                        <i class='icon4'></i>
-                                        {% text 'Превосходство' 'Superiority' %}
-                                    </h3>
-                                    <a class='remove'>
-                                        <i class='fa fa-remove'></i>
-                                    </a>
-                                    <ul class='list'>
-                                        <li>Ежемесячное оказание услуг. Включает в себя следующие услуги:</li>
-                                        <li>- Устные консультации – без ограничений;</li>
-                                        <li>- Письменные консультации по электронной почте – без ограничений;</li>
-                                        <li>- Проверка договоров – без ограничений;</li>
-                                        <li>- Разработка договоров – без ограничений;</li>
-                                        <li>- Правовые письменные заключения по запросу – без ограничений;</li>
-                                        <li>- Составление запроса, письма, ответа на запрос в государственные органы – без ограничений;</li>
-                                        <li>- Подготовка претензии контрагенту – без ограничений;</li>
-                                        <li>- Представительство в Арбитражном суде г. Москвы до 3 (трех) дел (более, по тарифу за каждый час);</li>
-                                    </ul>
-                                    <ul class='list extend'>
-                                        <li>- Предоставление нормативного материала, законов, изменений. Консультирование по нововведениям – без ограничений;</li>
-                                        <li>- Подготовка правил стимулирующего мероприятия – без ограничений;</li>
-                                        <li>- Подготовка учредительных документов (Решения, Протоколысобраний участников, иных документов) – без ограничений;</li>
-                                        <li>- Подготовка доверенности – без ограничений;</li>
-                                        <li>- Анализ предоставленных документов Клиентом – без ограничений;</li>
-                                        <li>- Выезд юриста в офис клиента или иное место в пределах г. Москвы для проведения переговоров и консультаций до 8 (восьми) раз в месяц, каждая консультация до 3 (трех) часов;</li>
-                                        <li>- Представительство адвоката до 2 (двух) раз в месяц до 2 (двух) часов каждое (далее по тарифу за каждый час);</li>
-                                        <li>- 10% скидки на тарифные услуги, не входящие в пакет.</li>
-                                    </ul>
+                            </li>
+                            <li class='item'>
+                                <span class='ic4'></span>
+                                <a>Superiority</a>
+                                <div class='content'>
+                                    <div class='centralizer'>
+                                        <h3 class='titleItem'>
+                                            <i class='icon4'></i>
+                                            Superiority
+                                        </h3>
+                                        <a class='remove'>
+                                            <i class='fa fa-remove'></i>
+                                        </a>
+                                        <ul class='list'>
+                                            <li>Monthly services. Includes the following services:</li>
+                                            <li>- Spoken consultations - unlimited;</li>
+                                            <li>- Written consultations via e-mail - unlimited;</li>
+                                            <li>- Verification of contracts - unlimited;</li>
+                                            <li>- Drafting contracts - unlimited;</li>
+                                            <li>- Written legal opinions upon request - unlimited;</li>
+                                            <li>- Preparation of request, letters, the response to a request of state authorities - unlimited;</li>
+                                            <li>- Preparation of claims to a counterparty - unlimited;</li>
+                                        </ul>
+                                        <ul class='list extend'>
+                                            <li> - Representation in Arbitration court of Moscow on up to three (3) cases (afterwards - according to the tariffs for each hour</li>
+                                            <li> - Providing legal material, laws, change in legislation. Advising on the novelties - unlimited;</li>
+                                            <li> - Preparation of stimulating event regulation - unlimited;</li>
+                                            <li> - Preparation of constituent documents (Decisions, minutes of meetings of members, other documents) - unlimited;</li>
+                                            <li> - Preparation of a Power of attorney - unlimited;</li>
+                                            <li> - Analysis of the documents provided by a Client - unlimited;</li>
+                                            <li> - Lawyer's visit of a Client's office, or another place within the city of Moscow for negotia-tions and consultation - up to eight (8) times per month, each consultation - up to 3 (three) hours long;</li>
+                                            <li> - Representation of attorney - up to two (2) times per month, each one - up to two (2) hours long (afterwards - according to the tariffs for each hour);</li>
+                                            <li> - 10% discount on tariff services not included in the package.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endtextblock %}
             </div>
             <div class='cost' id='cost'>
                 <div class='centralizer'>
